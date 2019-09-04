@@ -68,6 +68,14 @@ func (zkclient ZkClient)GetPath(path string) (string, *ZkPathStat, error){
 	return string(ret), &ZkPathStat{pathStat}, nil
 }
 
+func (zkclient ZkClient)GetChildren(path string)([]string, *ZkPathStat, error){
+	chiledren, pathStat, err := zkclient.conn.Children(path)
+	if err != nil{
+		return []string{""}, &ZkPathStat{}, err
+	}
+	return chiledren, &ZkPathStat{pathStat}, nil
+}
+
 func (zkclient ZkClient)DeletePath(path string, version int32) error{
 	err_delete := zkclient.conn.Delete(path, version)
 	if err_delete != nil{

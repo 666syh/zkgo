@@ -32,7 +32,7 @@ func doRegister(target interface{}){
 			log.Error.Println(err)
 			return 
 		}
-		_, err = conn.CreatePath(ROOT+"/"+v["action"]+"|"+v["host"]+"|"+v["port"], "", zkop.ZKFLAG["TMP"], zkop.ZKACL["PERMALL"])
+		_, err = conn.CreatePath(ROOT+"/"+v["action"]+"|"+v["host"]+"|"+v["port"], "", zkop.ZKFLAG["TMP"] | zkop.ZKFLAG["SEQ"], zkop.ZKACL["PERMALL"])
 		if err != nil{
 			// fmt.Println(2, err)
 			log.Error.Println(err)
