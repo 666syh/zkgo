@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+OUTPUT=${1:-bin/zkgosvc}
+echo "Building zkgo ..."
+mkdir -p bin
+
+go build -o $OUTPUT cli/main.go
