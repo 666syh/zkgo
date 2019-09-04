@@ -3,7 +3,7 @@ package pkg
 import(
 	zkop "zkgo/zk"
 	"time"
-	"fmt"
+	log "zkgo/utils/logger"
 )
 
 const(
@@ -28,15 +28,18 @@ func doRegister(target interface{}){
 		v := target.(map[string]string)
 		conn, err := zkop.NewZkClient(hosts, 10*time.Second)
 		if err != nil{
-			fmt.Println(1, err)
+			// fmt.Println(1, err)
+			log.Error.Println(err)
 			return 
 		}
 		_, err = conn.CreatePath(ROOT+"/"+v["action"]+"|"+v["host"]+"|"+v["port"], "", zkop.ZKFLAG["TMP"], zkop.ZKACL["PERMALL"])
 		if err != nil{
-			fmt.Println(2, err)
+			// fmt.Println(2, err)
+			log.Error.Println(err)
 			zkop.CloseZkClient(conn)
 			return
 		}
-		fmt.Println("regist success")
+		// fmt.Println("regist success")
+		log.Info.Println("regist success")
 		// fmt.Println(target)
 }

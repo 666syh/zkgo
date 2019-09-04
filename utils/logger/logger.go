@@ -38,7 +38,7 @@ var levelNames = []string{
 	"INFO",
 	"DEBUG",
 }
-var file, _ = os.OpenFile("E:\\program files\\gopath\\src\\cred\\log\\cred.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+var file, _ = os.OpenFile("E:\\program files\\zk.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 func init() {
 	Debug = log.New(os.Stdout, "DEBUG\t| ", log.Lshortfile)
 	Debug.SetOutput(new(logWriter))
