@@ -1,5 +1,5 @@
 # zkgo
-对 [go-zookeeper/zk](https://github.com/samuel/go-zookeeper) 的封装，并利用 [grpc]() 实现服务注册
+对 [go-zookeeper/zk](https://github.com/samuel/go-zookeeper) 的封装，并利用 [grpc](https://github.com/go-kit/kit) 实现服务注册
 
 目录结构
 ```
